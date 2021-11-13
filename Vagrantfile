@@ -12,17 +12,17 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.define "OpentStack" do |os|
-    os.vm.box = "hashicorp/bionic64"
-    os.vm.disk :disk, size: "80GB", primary: true
-    os.vm.provision :shell, path: "bootstrap.sh"
-    os.vm.provision :file, source: "data/data.txt", destination: "/home/vagrant/some_data.txt"
-    os.vm.hostname = "vagrant"
-    #os.vm.synced_folder "./data", "/home/vagrant/data"
-    #os.vm.network :forwarded_port, guest: 80, host: 4567
-    os.vm.network :private_network, ip: "192.168.56.10"
+  config.vm.define "Sample" do |sm|
+    sm.vm.box = "hashicorp/bionic64"
+    sm.vm.disk :disk, size: "80GB", primary: true
+    sm.vm.provision :shell, path: "bootstrap.sh"
+    sm.vm.provision :file, source: "data/data.txt", destination: "/home/vagrant/some_data.txt"
+    sm.vm.hostname = "vagrant"
+    #sm.vm.synced_folder "./data", "/home/vagrant/data"
+    #sm.vm.network :forwarded_port, guest: 80, host: 4567
+    sm.vm.network :private_network, ip: "192.168.56.10"
 
-    os.vm.provider :virtualbox do |vb|
+    sm.vm.provider :virtualbox do |vb|
       vb.name = "vagrant"
       #vb.customize ["modifyvm", :id, "--memory", 1024]
       #vb.customize ["modifyvm", :id, "--cpus", 2]
