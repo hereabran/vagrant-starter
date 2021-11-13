@@ -7,3 +7,5 @@
 
 ### Vagrant Patch ###
 *.box
+
+.gitignore
